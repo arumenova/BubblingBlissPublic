@@ -1,6 +1,5 @@
 package org.example.bubblingbliss.controller;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.bubblingbliss.model.Item;
 import org.example.bubblingbliss.service.ItemService;
@@ -37,11 +36,16 @@ public class ItemController {
     public Item updateItem(@PathVariable Long id, @RequestBody Item item) {
         return itemService.updateItem(item, id);
     }
+//
+//    @PatchMapping("/{id}")
+//    public Item updateStock (@RequestBody @Valid ModifyStockRequest modifyStockRequest,@PathVariable Long id) {
+//
+//        return itemService.updateStock(modifyStockRequest,id);
+//    }
 
-    @PatchMapping("/{id}")
-    public Item updateStock (@RequestBody @Valid ModifyStockRequest modifyStockRequest,@PathVariable Long id) {
-
-        return itemService.updateStock(modifyStockRequest,id);
+    @GetMapping("/formatted")
+    public List<String> getFormattedItems() {
+        return itemService.getFormattedPrice();
     }
 
 

@@ -4,12 +4,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "Inventory")
+@Table(name = "inventory")
 
 
 public class Item {
@@ -22,9 +24,9 @@ public class Item {
     private String name;
     private String flavor;
     private Integer stock;
-    private double price;
+    private BigDecimal price;
 
-    public Item(String name, String flavor, Integer stock, double price) {
+    public Item(String name, String flavor, Integer stock, BigDecimal price) {
         this.name = name;
         this.flavor = flavor;
         this.stock = stock;
